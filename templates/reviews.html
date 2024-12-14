@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Reviews:</p>
+{% for review in reviews %}
+<ul><li>
+    {% if review.rating > 3 %}
+        <div class="text-success">
+            {{review.rating}}
+            <p>{{review.text}}</p>
+        </div>
+
+    {% elif review.rating < 3 %}
+        <div class="text-danger">
+            {{review.rating}}
+            <p>{{review.text}}</p>
+        </div>
+
+    {% else %}
+        <div class="text-warning">
+            {{review.rating}}
+            <p>{{review.text}}</p>
+        </div>
+    {% endif %}
+</li></ul>
+{% endfor %}
+
+{% endblock %}
